@@ -6,12 +6,12 @@
     <title>Javascript Password Validation</title>
 </head>
 <body>
-    <form onsubmit="validatePassword()" name ="myform" id="myform">
+    <form onsubmit="return false;" name ="myform" id="myform">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label><br>
         <input type="text" id="password" name="password" required><br>
-        <input type="submit">
+        <input type="submit" onclick="validatePassword()">
     </form>
 <script src="./scripts/app.js"></script>
 </body>

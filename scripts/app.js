@@ -1,6 +1,6 @@
 /**
  *
- * Write a isValidPassword function
+ *  isValidPassword function
 
 It accepts 2 arguments: password and username
 
@@ -18,31 +18,29 @@ otherwise return false
  *
  *
  */
-function isValidPassword(uname, pass) {
-    const whitespaceChars = [' ', '\t', '\n'];
-    if (pass < 8) {
+function isValidPassword(pass, uname) {
+    passwordLength = pass.length;
+    if (passwordLength < 8) {
+        console.log("Invalid - Password should be atleast 8 characters");
         return false;
     }
     else if (pass.includes(uname)) {
+        console.log("Invalid - Password contains username");
         return false;
     }
-    else if (pass.some(char => pass.includes(char))) {
+    else if (pass.indexOf(' ') >= 0) {
+        console.log("Invalid - Password contains whitespace");
         return false;
     }
     else
-        return true;
-
+        console.log("Valid Password!!!");
+    return true;
 }
 function validatePassword() {
-    alert("here");
-    console.log("hi")
     let validPassword = Boolean(false);
-    let password = document.getElementById(password);
-    let username = document.getElementById(username);
-    console.log(password);
-    console.log(username);
-    console.log("---------");
-    /*  validPassword = isValidPassword(password, username); */
-    console.log(validPassword)
-    return true;
+    let password = document.getElementById("password").value;
+    let username = document.getElementById("username").value;
+    validPassword = isValidPassword(password, username);
+    console.log("Is the password valid? - " + validPassword);
+    return false;
 }
